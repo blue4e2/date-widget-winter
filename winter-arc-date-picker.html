@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue Winter Calendar</title>
+    <title>Dark Blue Winter Calendar</title>
     <style>
-        /* 🔵 BLUE THEME SETTINGS (Reverted) */
+        /* 🔵 DARK BLUE THEME SETTINGS */
         :root {
-            --bg-color: transparent;   /* Transparent Page Background */
-            --header-bg: #1976D2;      /* Strong Blue Header */
+            --bg-color: #0D47A1;       /* Deep Dark Blue Page Background */
+            --header-bg: #002171;      /* Very Dark Navy Header */
             --header-text: #ffffff;    /* White text for Month Name */
-            --current-date-bg: #1565C0;/* Dark Blue for "Today" circle */
+            --current-date-bg: #002171;/* Navy for "Today" circle */
             --text-color: #37474F;     /* Dark Grey for numbers */
             --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -28,9 +28,9 @@
         }
 
         .calendar-card {
-            background: white; /* White Card */
+            background: white; /* White Card for contrast against dark bg */
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             width: 100%;
             max-width: 350px; /* Compact Size */
             overflow: hidden;
@@ -54,7 +54,7 @@
         .weekdays {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            background-color: rgba(25, 118, 210, 0.1); /* Light tint of header */
+            background-color: #E3F2FD; /* Very light blue for weekday row */
             padding: 10px 0;
         }
 
