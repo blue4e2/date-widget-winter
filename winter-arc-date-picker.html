@@ -7,11 +7,12 @@
     <style>
         /* 🔵 DARK BLUE THEME SETTINGS */
         :root {
-            --bg-color: #0D47A1;       /* Deep Dark Blue Page Background */
-            --header-bg: #002171;      /* Very Dark Navy Header */
+            --bg-color: #0D47A1;       /* Deep Dark Blue Page Background (Kept same) */
+            --card-bg: #1565C0;        /* CHANGED: Blue Card Background (Was White) */
+            --header-bg: #0D47A1;      /* Dark Header to match page bg */
             --header-text: #ffffff;    /* White text for Month Name */
-            --current-date-bg: #002171;/* Navy for "Today" circle */
-            --text-color: #37474F;     /* Dark Grey for numbers */
+            --current-date-bg: #42A5F5;/* Lighter Blue for "Today" circle */
+            --text-color: #ffffff;     /* CHANGED: White text for numbers */
             --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
@@ -28,12 +29,13 @@
         }
 
         .calendar-card {
-            background: white; /* White Card for contrast against dark bg */
+            background: var(--card-bg); /* Uses the new Blue color */
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             width: 100%;
             max-width: 350px; /* Compact Size */
             overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for definition */
         }
 
         .calendar-header {
@@ -54,7 +56,7 @@
         .weekdays {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            background-color: #E3F2FD; /* Very light blue for weekday row */
+            background-color: rgba(0, 0, 0, 0.2); /* Dark transparent strip */
             padding: 10px 0;
         }
 
@@ -62,7 +64,7 @@
             text-align: center;
             font-size: 0.8rem;
             font-weight: bold;
-            color: var(--header-bg);
+            color: rgba(255, 255, 255, 0.8); /* Light white text */
         }
 
         .days {
@@ -86,10 +88,11 @@
             background-color: var(--current-date-bg);
             color: white;
             font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
         .days div.other-month {
-            color: #ccc;
+            color: rgba(255, 255, 255, 0.3); /* Faded white for other months */
         }
 
     </style>
