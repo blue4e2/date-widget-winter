@@ -3,37 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue Winter Calendar</title>
+    <title>Dark Blue Winter Calendar</title>
     <style>
-        /* 🔵 BLUE THEME SETTINGS */
+        /* 🔵 DARK BLUE & FULL SIZE SETTINGS */
         :root {
-            --bg-color: #E3F2FD;       /* Light Blue Background */
-            --header-bg: #1976D2;      /* Strong Blue Header */
-            --header-text: #ffffff;    /* White text for Month Name */
-            --current-date-bg: #1565C0;/* Dark Blue for "Today" circle */
-            --text-color: #37474F;     /* Dark Grey for numbers */
+            --bg-color: transparent;   /* Page background transparent */
+            --card-bg: #0D47A1;        /* Deep Dark Blue for the Calendar */
+            --header-bg: #1565C0;      /* Slightly Lighter Blue Header */
+            --header-text: #ffffff;    /* White text */
+            --current-date-bg: #42A5F5;/* Bright Blue for "Today" circle */
+            --text-color: #ffffff;     /* White for numbers */
+            --off-month-color: #64B5F6;/* Light Blue for previous/next month days */
             --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
             margin: 0;
-            padding: 20px;
+            padding: 0; /* Removed padding for Full Size */
             background-color: var(--bg-color);
             font-family: var(--font-family);
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             height: 100vh;
             overflow: hidden;
         }
 
         .calendar-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            background: var(--card-bg);
+            /* Removed fixed width and max-width for Full Size */
             width: 100%;
-            max-width: 350px;
-            overflow: hidden;
+            height: 100%; 
+            display: flex;
+            flex-direction: column;
+            /* Removed border-radius so it fills the embed corner-to-corner */
+            border-radius: 0; 
         }
 
         .calendar-header {
@@ -41,43 +45,47 @@
             color: var(--header-text);
             padding: 20px;
             text-align: center;
+            flex-shrink: 0; /* Header stays same size */
         }
 
         .month-year {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             margin: 0;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         .weekdays {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            background-color: rgba(25, 118, 210, 0.1); /* Light tint of header */
+            background-color: rgba(0, 0, 0, 0.1); /* Slight darken for contrast */
             padding: 10px 0;
+            flex-shrink: 0;
         }
 
         .weekdays div {
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             font-weight: bold;
-            color: var(--header-bg);
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .days {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             padding: 10px;
+            flex-grow: 1; /* Allows the days grid to take up remaining space */
+            align-content: start; /* Numbers start at top */
         }
 
         .days div {
-            padding: 10px;
+            padding: 15px; /* Bigger touch targets */
             text-align: center;
             margin: 2px;
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: var(--text-color);
-            border-radius: 50%;
+            border-radius: 8px; /* Slightly square rounded corners */
             cursor: default;
         }
 
@@ -86,10 +94,12 @@
             background-color: var(--current-date-bg);
             color: white;
             font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
         .days div.other-month {
-            color: #ccc;
+            color: var(--off-month-color);
+            opacity: 0.5;
         }
 
     </style>
